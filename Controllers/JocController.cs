@@ -28,8 +28,7 @@ namespace Backend_Obstruction.Controllers
         [HttpGet("AlgoritmFindFirstViableCell"), AlgoritmJoc("Algorithm Find First Viabile Cell")]
         public Task<string> AlgoritmFindFirstViableCell(string formula)
         {
-            // Find First Viable Cell Algoritm is designed by me, no inspiration.           
-
+            // Find First Viable Cell Algoritm is designed by me, no inspiration.
             try
             {
                 CreatorAlgoritm algoritm = new BoardFirstCellCreator(formula);
@@ -60,8 +59,8 @@ namespace Backend_Obstruction.Controllers
         [HttpGet("AlgoritmFindGoldenMove"), AlgoritmJoc("Algorithm Find Golden Move")]
         public Task<string> AlgoritmFindGoldenMove(string formula)
         {
-            // Golden Find Move Algorithm is designed by me, no inspiration
-
+            // Find Golden Move Algorithm is designed by me (the name of algorithm also), no inspiration
+            //The same with AlgoritmFindFirstViableCell, only difference is that it isn't go out and continue to iterate in a hope to find a better solution
             try
             {
                 CreatorAlgoritm algoritm = new BoardFindGoldenMoveCreator(formula);

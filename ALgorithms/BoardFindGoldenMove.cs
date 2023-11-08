@@ -11,18 +11,17 @@ namespace Backend_Obstruction.ALgorithms
         }
 
         public override string GetMessage(int i, int j, string message)
-        {
-            //just initiate the response with the first available cell
-            //until now both algorithms are the same, only difference is that it isn't go out and continue to iterate
-            //in a hope to find a better solution, a close solution
-
-            //here we set the first viable cell ad continue to search for win solution if exist
+        {            
+            //set the first viable cell ad continue to search for win solution if exist
             if (message == messageNotExist)
             {
                 message = new Cell(i, j).ToString();
             }
+            //copy the board
             Board tempBoard = new Board(Board);
-            tempBoard.setUnavailableBoardCells(i, j);            
+            //mark the cell as occupied and mark the neghboars the same
+            tempBoard.setUnavailableBoardCells(i, j);
+            //check to see if id doesn't have any available cells, if yes send the cell otherwise keep the first viable cell finded and keep looping
             if (!tempBoard.checkAvailableMoves())
             {
                 //here we find the win cell and we send it
